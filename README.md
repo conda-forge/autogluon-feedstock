@@ -151,5 +151,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@Innixma](https://github.com/Innixma/)
 * [@giswqs](https://github.com/giswqs/)
 
