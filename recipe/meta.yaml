@@ -1,13 +1,16 @@
 {% set name = "autogluon" %}
-{% set version = "0.6.2" %}
+{% set version = "0.7.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/autogluon/autogluon/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 96075e9bfce79420fe78a5566a1ba82f9a80598e955f4a4fc490f5561ede70bd
+  # url: https://github.com/autogluon/autogluon/archive/refs/tags/v{{ version }}.tar.gz
+  # sha256: 96075e9bfce79420fe78a5566a1ba82f9a80598e955f4a4fc490f5561ede70bd
+  # Use the latest commit temporarily
+  url: https://github.com/autogluon/autogluon/archive/ab43ffb2c8ed6ad45b46d29958df7ae039a1c9ac.tar.gz
+  sha256: f66ec997340b7451bf879270acd18d9c3840e2b0315626730cc3e93c72288238
 
 build:
   noarch: python
@@ -18,16 +21,14 @@ build:
    
 requirements:
   host:
-    - python >=3.7,<3.10
+    - python >=3.8,<3.11
     - pip
   run:
-    - python >=3.7,<3.10
+    - python >=3.8,<3.11
     - autogluon.core =={{ version }}
     - autogluon.features =={{ version }}
     - autogluon.tabular =={{ version }}
     - autogluon.multimodal =={{ version }}
-    - autogluon.text =={{ version }}
-    - autogluon.vision =={{ version }}
     - autogluon.timeseries =={{ version }}
 
 test:
