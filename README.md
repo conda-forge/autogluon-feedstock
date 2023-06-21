@@ -1,11 +1,11 @@
-About autogluon
-===============
+About autogluon-feedstock
+=========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/autogluon-feedstock/blob/main/LICENSE.txt)
 
 Home: https://pypi.org/project/autogluon
 
 Package license: Apache-2.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/autogluon-feedstock/blob/main/LICENSE.txt)
 
 Summary: AutoML for Image, Text, and Tabular Data
 
@@ -151,5 +151,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@Innixma](https://github.com/Innixma/)
 * [@giswqs](https://github.com/giswqs/)
 
