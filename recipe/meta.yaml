@@ -10,6 +10,9 @@ source:
   url: https://github.com/autogluon/autogluon/archive/refs/tags/v{{ version }}.tar.gz
   sha256: 381ca65386793cc304bf4d439622f33553dc6c7afa09a22a2be4584319a8bf09
 
+build:
+  number: {{ number}}
+
 outputs:
   - name: autogluon.common
     build:
