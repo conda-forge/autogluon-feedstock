@@ -4,3 +4,6 @@ github:
 conda_forge_output_validation: true
 bot:
   automerge: true
+build_platform:
+  osx_arm64: osx_64
+test: native_and_emulated
