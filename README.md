@@ -3,13 +3,128 @@ About autogluon-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/autogluon-feedstock/blob/main/LICENSE.txt)
 
+About autogluon
+---------------
+
 Home: https://pypi.org/project/autogluon
 
 Package license: Apache-2.0
 
 Summary: AutoML for Image, Text, and Tabular Data
 
-Development: https://github.com/autogluon/autogluon/
+Development: https://github.com/autogluon/autogluon
+
+AutoGluon automates machine learning tasks enabling you to easily achieve strong 
+predictive performance in your applications. With just a few lines of code, you 
+can train and deploy high-accuracy machine learning and deep learning models on 
+image, text, time series, and tabular data.
+
+About autogluon.common
+----------------------
+
+Home: https://pypi.org/project/autogluon
+
+Package license: Apache-2.0
+
+Summary: AutoML for Image, Text, and Tabular Data
+
+Development: https://github.com/autogluon/autogluon
+
+AutoGluon automates machine learning tasks enabling you to easily achieve strong
+predictive performance in your applications. With just a few lines of code, you
+can train and deploy high-accuracy machine learning and deep learning models on
+image, text, time series, and tabular data.
+
+About autogluon.core
+--------------------
+
+Home: https://pypi.org/project/autogluon
+
+Package license: Apache-2.0
+
+Summary: AutoML for Image, Text, and Tabular Data
+
+Development: https://github.com/autogluon/autogluon
+
+AutoGluon automates machine learning tasks enabling you to easily achieve strong
+predictive performance in your applications. With just a few lines of code, you
+can train and deploy high-accuracy machine learning and deep learning models on
+image, text, time series, and tabular data.
+
+About autogluon.features
+------------------------
+
+Home: https://pypi.org/project/autogluon
+
+Package license: Apache-2.0
+
+Summary: AutoML for Image, Text, and Tabular Data
+
+Development: https://github.com/autogluon/autogluon
+
+AutoGluon automates machine learning tasks enabling you to easily achieve strong
+predictive performance in your applications. With just a few lines of code, you
+can train and deploy high-accuracy machine learning and deep learning models on
+image, text, time series, and tabular data.
+
+About autogluon.multimodal
+--------------------------
+
+Home: https://pypi.org/project/autogluon
+
+Package license: Apache-2.0
+
+Summary: AutoML for Image, Text, and Tabular Data
+
+Development: https://github.com/autogluon/autogluon
+
+AutoGluon automates machine learning tasks enabling you to easily achieve strong
+predictive performance in your applications. With just a few lines of code, you
+can train and deploy high-accuracy machine learning and deep learning models on
+image, text, time series, and tabular data.
+
+About autogluon.tabular
+-----------------------
+
+Home: https://pypi.org/project/autogluon
+
+Package license: Apache-2.0
+
+Summary: AutoML for Image, Text, and Tabular Data
+
+Development: https://github.com/autogluon/autogluon
+
+AutoGluon automates machine learning tasks enabling you to easily achieve strong
+predictive performance in your applications. With just a few lines of code, you
+can train and deploy high-accuracy machine learning and deep learning models on
+image, text, time series, and tabular data.
+
+About autogluon.timeseries
+--------------------------
+
+Home: https://pypi.org/project/autogluon
+
+Package license: Apache-2.0
+
+Summary: AutoML for Image, Text, and Tabular Data
+
+Development: https://github.com/autogluon/autogluon
+
+AutoGluon automates machine learning tasks enabling you to easily achieve strong
+predictive performance in your applications. With just a few lines of code, you
+can train and deploy high-accuracy machine learning and deep learning models on
+image, text, time series, and tabular data.
+
+About autogluon
+---------------
+
+Home: https://pypi.org/project/autogluon
+
+Package license: Apache-2.0
+
+Summary: AutoML for Image, Text, and Tabular Data
+
+Development: https://github.com/autogluon/autogluon
 
 AutoGluon automates machine learning tasks enabling you to easily achieve strong
 predictive performance in your applications. With just a few lines of code, you
@@ -21,11 +136,72 @@ Current build status
 ====================
 
 
-<table><tr><td>All platforms:</td>
+<table>
+    
+  <tr>
+    <td>Azure</td>
     <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18555&branchName=main">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/autogluon-feedstock?branchName=main">
-      </a>
+      <details>
+        <summary>
+          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18555&branchName=main">
+            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/autogluon-feedstock?branchName=main">
+          </a>
+        </summary>
+        <table>
+          <thead><tr><th>Variant</th><th>Status</th></tr></thead>
+          <tbody><tr>
+              <td>linux_64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18555&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/autogluon-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_python3.10.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18555&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/autogluon-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.10.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_python3.8.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18555&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/autogluon-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.8.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_python3.9.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18555&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/autogluon-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.9.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_python3.10.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18555&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/autogluon-feedstock?branchName=main&jobName=win&configuration=win%20win_64_python3.10.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_python3.8.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18555&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/autogluon-feedstock?branchName=main&jobName=win&configuration=win%20win_64_python3.8.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_python3.9.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18555&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/autogluon-feedstock?branchName=main&jobName=win&configuration=win%20win_64_python3.9.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
     </td>
   </tr>
 </table>
@@ -36,6 +212,12 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-autogluon-green.svg)](https://anaconda.org/conda-forge/autogluon) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/autogluon.svg)](https://anaconda.org/conda-forge/autogluon) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/autogluon.svg)](https://anaconda.org/conda-forge/autogluon) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/autogluon.svg)](https://anaconda.org/conda-forge/autogluon) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-autogluon.common-green.svg)](https://anaconda.org/conda-forge/autogluon.common) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/autogluon.common.svg)](https://anaconda.org/conda-forge/autogluon.common) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/autogluon.common.svg)](https://anaconda.org/conda-forge/autogluon.common) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/autogluon.common.svg)](https://anaconda.org/conda-forge/autogluon.common) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-autogluon.core-green.svg)](https://anaconda.org/conda-forge/autogluon.core) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/autogluon.core.svg)](https://anaconda.org/conda-forge/autogluon.core) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/autogluon.core.svg)](https://anaconda.org/conda-forge/autogluon.core) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/autogluon.core.svg)](https://anaconda.org/conda-forge/autogluon.core) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-autogluon.features-green.svg)](https://anaconda.org/conda-forge/autogluon.features) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/autogluon.features.svg)](https://anaconda.org/conda-forge/autogluon.features) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/autogluon.features.svg)](https://anaconda.org/conda-forge/autogluon.features) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/autogluon.features.svg)](https://anaconda.org/conda-forge/autogluon.features) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-autogluon.multimodal-green.svg)](https://anaconda.org/conda-forge/autogluon.multimodal) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/autogluon.multimodal.svg)](https://anaconda.org/conda-forge/autogluon.multimodal) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/autogluon.multimodal.svg)](https://anaconda.org/conda-forge/autogluon.multimodal) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/autogluon.multimodal.svg)](https://anaconda.org/conda-forge/autogluon.multimodal) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-autogluon.tabular-green.svg)](https://anaconda.org/conda-forge/autogluon.tabular) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/autogluon.tabular.svg)](https://anaconda.org/conda-forge/autogluon.tabular) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/autogluon.tabular.svg)](https://anaconda.org/conda-forge/autogluon.tabular) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/autogluon.tabular.svg)](https://anaconda.org/conda-forge/autogluon.tabular) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-autogluon.timeseries-green.svg)](https://anaconda.org/conda-forge/autogluon.timeseries) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/autogluon.timeseries.svg)](https://anaconda.org/conda-forge/autogluon.timeseries) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/autogluon.timeseries.svg)](https://anaconda.org/conda-forge/autogluon.timeseries) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/autogluon.timeseries.svg)](https://anaconda.org/conda-forge/autogluon.timeseries) |
 
 Installing autogluon
 ====================
@@ -47,16 +229,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `autogluon` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `autogluon, autogluon.common, autogluon.core, autogluon.features, autogluon.multimodal, autogluon.tabular, autogluon.timeseries` can be installed with `conda`:
 
 ```
-conda install autogluon
+conda install autogluon autogluon.common autogluon.core autogluon.features autogluon.multimodal autogluon.tabular autogluon.timeseries
 ```
 
 or with `mamba`:
 
 ```
-mamba install autogluon
+mamba install autogluon autogluon.common autogluon.core autogluon.features autogluon.multimodal autogluon.tabular autogluon.timeseries
 ```
 
 It is possible to list all of the versions of `autogluon` available on your platform with `conda`:
