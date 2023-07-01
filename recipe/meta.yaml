@@ -11,23 +11,22 @@ source:
   sha256: 381ca65386793cc304bf4d439622f33553dc6c7afa09a22a2be4584319a8bf09
 
 build:
+  skip: true  # [py>=311]
   number: {{ number }}
+  script_env:
+    - RELEASE=1
 
 outputs:
   - name: autogluon.common
     build:
-      noarch: python
       script: {{ PYTHON }} -m pip install ./common -vv
-      number: {{ number }}
-      script_env:
-        - RELEASE=1
     requirements:
       host:
-        - python >=3.8,<3.11
+        - python # >=3.8,<3.11
         - pip
       # dep versions defined in https://github.com/autogluon/autogluon/blob/master/common/setup.py
       run:
-        - python >=3.8,<3.11
+        - python # >=3.8,<3.11
         - numpy >=1.21,<1.27
         - pandas >=1.4.1,<1.6
         - boto3 >=1.10,<2
@@ -43,18 +42,14 @@ outputs:
 
   - name: autogluon.features
     build:
-      noarch: python
       script: {{ PYTHON }} -m pip install ./features -vv
-      number: {{ number }}
-      script_env:
-        - RELEASE=1
     requirements:
       host:
-        - python >=3.8,<3.11
+        - python # >=3.8,<3.11
         - pip
       # dep versions defined in https://github.com/autogluon/autogluon/blob/master/features/setup.py
       run:
-        - python >=3.8,<3.11
+        - python # >=3.8,<3.11
         - numpy >=1.21,<1.27
         - pandas >=1.4.1,<1.6
         - scikit-learn >=1.0,<1.3
@@ -69,11 +64,7 @@ outputs:
 
   - name: autogluon.core
     build:
-      skip: true  # [py>=311]
       script: {{ PYTHON }} -m pip install ./core -vv
-      number: {{ number }}
-      script_env:
-        - RELEASE=1
     requirements:
       # adds osx_arm64 builds. See https://conda-forge.org/blog/posts/2020-10-29-macos-arm64/
       build:
@@ -112,7 +103,7 @@ outputs:
 
   - name: autogluon.tabular
     build:
-      noarch: python
+      # noarch: python
       number: {{ number }}
       script: {{ PYTHON }} -m pip install ./tabular -vv
       script_env:
@@ -124,11 +115,11 @@ outputs:
         - cython                                 # [build_platform != target_platform]
         - numpy  >=1.21,<1.27                    # [build_platform != target_platform]
       host:
-        - python >=3.8,<3.11
+        - python # >=3.8,<3.11
         - pip
       run:
       # dep versions defined in https://github.com/autogluon/autogluon/blob/master/tabular/setup.py
-        - python >=3.8,<3.11
+        - python # >=3.8,<3.11
         - numpy >=1.21,<1.27
         - scipy >=1.5.4,<1.12
         - pandas >=1.4.1,<1.6
@@ -151,11 +142,7 @@ outputs:
 
   - name: autogluon.multimodal
     build:
-      noarch: python
       script: {{ PYTHON }} -m pip install ./multimodal -vv
-      number: {{ number }}
-      script_env:
-        - RELEASE=1
     requirements:
       build:
         - python                                 # [build_platform != target_platform]
@@ -163,10 +150,10 @@ outputs:
         - cython                                 # [build_platform != target_platform]
         - numpy  >=1.21,<1.27                    # [build_platform != target_platform]
       host:
-        - python >=3.8,<3.11
+        - python # >=3.8,<3.11
         - pip
       run:
-        - python >=3.8,<3.11
+        - python # >=3.8,<3.11
         - numpy >=1.21,<1.27
         - scipy >=1.5.4,<1.12
         - pandas >=1.4.1,<1.6
@@ -211,18 +198,14 @@ outputs:
 
   - name: autogluon.timeseries
     build:
-      noarch: python
       script: {{ PYTHON }} -m pip install ./timeseries -vv
-      number: {{ number }}
-      script_env:
-        - RELEASE=1
     requirements:
       host:
-        - python >=3.8,<3.11
+        - python # >=3.8,<3.11
         - packaging
         - pip
       run:
-        - python >=3.8,<3.11
+        - python # >=3.8,<3.11
         - joblib >=1.1,<2
         - numpy >=1.21,<1.27
         - scipy >=1.5.4,<1.12
@@ -249,17 +232,13 @@ outputs:
 
   - name: autogluon
     build:
-      noarch: python
       script: {{ PYTHON }} -m pip install ./autogluon -vv
-      number: {{ number }}
-      script_env:
-        - RELEASE=1
     requirements:
       host:
-        - python >=3.8,<3.11
+        - python # >=3.8,<3.11
         - pip
       run:
-        - python >=3.8,<3.11
+        - python # >=3.8,<3.11
         - autogluon.core =={{ version }}
         - autogluon.features =={{ version }}
         - autogluon.tabular =={{ version }}
@@ -272,7 +251,6 @@ outputs:
       #   - python -c "from autogluon.version import __version__ as v; assert v == '{{ version }}', f'{v} != {{ version }}'"
       requires:
         - pip
-
 
 about:
   home: https://pypi.org/project/autogluon
