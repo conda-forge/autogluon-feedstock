@@ -18,7 +18,7 @@ outputs:
     build:
       noarch: python
       script: {{ PYTHON }} -m pip install ./common -vv
-      number: {{ number}}
+      number: {{ number }}
       script_env:
         - RELEASE=1
     requirements:
@@ -113,7 +113,7 @@ outputs:
   - name: autogluon.tabular
     build:
       noarch: python
-      number: {{ number}}
+      number: {{ number }}
       script: {{ PYTHON }} -m pip install ./tabular -vv
       script_env:
         - RELEASE=1
@@ -213,7 +213,7 @@ outputs:
     build:
       noarch: python
       script: {{ PYTHON }} -m pip install ./timeseries -vv
-      number: {{ number}}
+      number: {{ number }}
       script_env:
         - RELEASE=1
     requirements:
