@@ -19,7 +19,7 @@ build:
 outputs:
   - name: autogluon.common
     build:
-      script: {{ PYTHON }} -m pip install ./common -vv
+      script: python -m pip install ./common -vv
     requirements:
       host:
         - python # >=3.8,<3.11
@@ -42,7 +42,7 @@ outputs:
 
   - name: autogluon.features
     build:
-      script: {{ PYTHON }} -m pip install ./features -vv
+      script: python -m pip install ./features -vv
     requirements:
       host:
         - python # >=3.8,<3.11
@@ -64,7 +64,7 @@ outputs:
 
   - name: autogluon.core
     build:
-      script: {{ PYTHON }} -m pip install ./core -vv
+      script: python -m pip install ./core -vv
     requirements:
       # adds osx_arm64 builds. See https://conda-forge.org/blog/posts/2020-10-29-macos-arm64/
       build:
@@ -105,7 +105,7 @@ outputs:
     build:
       # noarch: python
       number: {{ number }}
-      script: {{ PYTHON }} -m pip install ./tabular -vv
+      script: python -m pip install ./tabular -vv
       script_env:
         - RELEASE=1
     requirements:
@@ -142,7 +142,7 @@ outputs:
 
   - name: autogluon.multimodal
     build:
-      script: {{ PYTHON }} -m pip install ./multimodal -vv
+      script: python -m pip install ./multimodal -vv
     requirements:
       build:
         - python                                 # [build_platform != target_platform]
@@ -198,7 +198,7 @@ outputs:
 
   - name: autogluon.timeseries
     build:
-      script: {{ PYTHON }} -m pip install ./timeseries -vv
+      script: python -m pip install ./timeseries -vv
     requirements:
       host:
         - python # >=3.8,<3.11
@@ -232,7 +232,7 @@ outputs:
 
   - name: autogluon
     build:
-      script: {{ PYTHON }} -m pip install ./autogluon -vv
+      script: python -m pip install ./autogluon -vv
     requirements:
       host:
         - python # >=3.8,<3.11
