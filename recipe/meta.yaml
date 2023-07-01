@@ -1,40 +1,275 @@
-{% set name = "autogluon" %}
-{% set version = "0.8.1" %}
+{% set version = "0.8.2" %}
+{% set number = "1" %}
+# dep versions defined in https://github.com/autogluon/autogluon/blob/master/core/src/autogluon/core/_setup_utils.py
 
 package:
-  name: {{ name|lower }}
+  name: autogluon
   version: {{ version }}
 
 source:
   url: https://github.com/autogluon/autogluon/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: d1d357c154ad8deee5614f950ad07ee68ac2f65b8f3af114c1ee93c819934f1b
+  sha256: 381ca65386793cc304bf4d439622f33553dc6c7afa09a22a2be4584319a8bf09
 
-build:
-  noarch: python
-  script: {{ PYTHON }} -m pip install ./autogluon -vv
-  number: 0
-  script_env:
-   - RELEASE=1
-   
-requirements:
-  host:
-    - python >=3.8,<3.11
-    - pip
-  run:
-    - python >=3.8,<3.11
-    - autogluon.core =={{ version }}
-    - autogluon.features =={{ version }}
-    - autogluon.tabular =={{ version }}
-    - autogluon.multimodal =={{ version }}
-    - autogluon.timeseries =={{ version }}
+outputs:
+  - name: autogluon.common
+    build:
+      noarch: python
+      script: {{ PYTHON }} -m pip install ./common -vv
+      number: {{ number}}
+      script_env:
+        - RELEASE=1
+    requirements:
+      host:
+        - python >=3.8,<3.11
+        - pip
+      # dep versions defined in https://github.com/autogluon/autogluon/blob/master/common/setup.py
+      run:
+        - python >=3.8,<3.11
+        - numpy >=1.21,<1.27
+        - pandas >=1.4.1,<1.6
+        - boto3 >=1.10,<2
+        - psutil >=5.7.3,<6
+        - setuptools
+    test:
+      imports:
+        - autogluon.common
+      commands:
+        - python -c "from autogluon.common import __version__ as v; assert v == '{{ version }}', f'{v} != {{ version }}'"
+      requires:
+        - pip
 
-test:
-  imports:
-    - autogluon
-  # commands:
-  #   - python -c "from autogluon.version import __version__ as v; assert v == '{{ version }}', f'{v} != {{ version }}'"
-  requires:
-    - pip
+  - name: autogluon.features
+    build:
+      noarch: python
+      script: {{ PYTHON }} -m pip install ./features -vv
+      number: {{ number}}
+      script_env:
+        - RELEASE=1
+    requirements:
+      host:
+        - python >=3.8,<3.11
+        - pip
+      # dep versions defined in https://github.com/autogluon/autogluon/blob/master/features/setup.py
+      run:
+        - python >=3.8,<3.11
+        - numpy >=1.21,<1.27
+        - pandas >=1.4.1,<1.6
+        - scikit-learn >=1.0,<1.3
+        - autogluon.common =={{ version }}
+    test:
+      imports:
+        - autogluon.features
+      commands:
+        - python -c "from autogluon.features import __version__ as v; assert v == '{{ version }}', f'{v} != {{ version }}'"
+      requires:
+        - pip
+
+  - name: autogluon.core
+    build:
+      skip: true  # [py>=311]
+      script: {{ PYTHON }} -m pip install ./core -vv
+      number: {{ number}}
+      script_env:
+        - RELEASE=1
+    requirements:
+      # adds osx_arm64 builds. See https://conda-forge.org/blog/posts/2020-10-29-macos-arm64/
+      build:
+        - python                                 # [build_platform != target_platform]
+        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+        - cython                                 # [build_platform != target_platform]
+        - numpy  >=1.21,<1.27                    # [build_platform != target_platform]
+      host:
+        - python # >=3.8,<3.11
+        - pip
+      # dep versions defined in https://github.com/autogluon/autogluon/blob/master/core/src/autogluon/core/_setup_utils.py
+      run:
+        - python # >=3.8,<3.11
+        - boto3 >=1.10,<2
+        - numpy >=1.21,<1.27
+        - pandas >=1.4.1,<1.6
+        - scikit-learn >=1.0,<1.3
+        - scipy >=1.5.4,<1.12
+        - psutil >=5.7.3,<6
+        - networkx >=3.0,<4
+        - tqdm >=4.38,<5
+        - pillow >=9.3,<9.6
+        - requests
+        - matplotlib-base
+        - ray-default >=2.3,<2.4  # [not osx]
+        - grpcio >=1.42.0,<= 1.50.0
+        - pydantic >=1.10.4,<2.0
+        - autogluon.common =={{ version }}
+    test:
+      imports:
+        - autogluon.core
+      commands:
+        - python -c "from autogluon.core import __version__ as v; assert v == '{{ version }}', f'{v} != {{ version }}'"
+      requires:
+        - pip
+
+  - name: autogluon.tabular
+    build:
+      noarch: python
+      number: {{ number}}
+      script: {{ PYTHON }} -m pip install ./tabular -vv
+      script_env:
+        - RELEASE=1
+    requirements:
+      build:
+        - python                                 # [build_platform != target_platform]
+        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+        - cython                                 # [build_platform != target_platform]
+        - numpy  >=1.21,<1.27                    # [build_platform != target_platform]
+      host:
+        - python >=3.8,<3.11
+        - pip
+      run:
+      # dep versions defined in https://github.com/autogluon/autogluon/blob/master/tabular/setup.py
+        - python >=3.8,<3.11
+        - numpy >=1.21,<1.27
+        - scipy >=1.5.4,<1.12
+        - pandas >=1.4.1,<1.6
+        - scikit-learn >=1.0,<1.3
+        - networkx >=3.0,<4
+        - pytorch >=1.9,<1.14
+        - lightgbm >=3.3,<3.4
+        - xgboost >=1.6,<1.8
+        - catboost >=1.0,<1.2
+        - fastai >=2.3.1,<2.8
+        - autogluon.core =={{ version }}
+        - autogluon.features =={{ version }}
+    test:
+      imports:
+        - autogluon.tabular
+      commands:
+        - python -c "from autogluon.tabular import __version__ as v; assert v == '{{ version }}', f'{v} != {{ version }}'"
+      requires:
+        - pip
+
+  - name: autogluon.multimodal
+    build:
+      noarch: python
+      script: {{ PYTHON }} -m pip install ./multimodal -vv
+      number: {{ number}}
+      script_env:
+        - RELEASE=1
+    requirements:
+      build:
+        - python                                 # [build_platform != target_platform]
+        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+        - cython                                 # [build_platform != target_platform]
+        - numpy  >=1.21,<1.27                    # [build_platform != target_platform]
+      host:
+        - python >=3.8,<3.11
+        - pip
+      run:
+        - python >=3.8,<3.11
+        - numpy >=1.21,<1.27
+        - scipy >=1.5.4,<1.12
+        - pandas >=1.4.1,<1.6
+        - scikit-learn >=1.0,<1.3
+        - pillow >=9.3,<9.6
+        - tqdm >=4.38,<5
+        - boto3 >=1.10,<2
+        - requests >=2.21,<3
+        - jsonschema >=4.14,<4.18
+        - seqeval >=1.2.2,<1.3.0
+        - evaluate >=0.2.2,<0.4.0
+        - accelerate >=0.9,<0.17
+        - timm >=0.9.2,<0.10.0
+        - pytorch >=1.9,<1.14  
+        - torchvision <0.15.0  
+        - scikit-image >=0.19.1,<0.20.0
+        - pytorch-lightning >=1.9.0,<1.10.0
+        - text-unidecode >=1.3,<1.4
+        - torchmetrics 0.11.0,<0.12.0
+        - transformers >=4.23.0,<4.27.0
+        - nptyping >=1.4.4,<2.5.0
+        - omegaconf >=2.1.1,<2.3.0
+        - sentencepiece >=0.1.95,<0.2.0
+        - pytorch-metric-learning >=1.3.0,<2.0
+        - nlpaug >=1.1.10,<1.2.0
+        - nltk >=3.4.5,<4.0.0
+        - openmim >=0.3.7,<0.4.0
+        - defusedxml >=0.7.1,<0.7.2
+        - jinja2 >=3.0.3,<3.2
+        - tensorboard >=2.9,<3
+        - pytesseract >=0.3.9,<0.3.11
+        - autogluon.core =={{ version }}
+        - autogluon.features =={{ version }}
+        - autogluon.common =={{ version }}
+    test:
+      imports:
+        - autogluon.multimodal
+      commands:
+        - python -c "from autogluon.multimodal import __version__ as v; assert v == '{{ version }}', f'{v} != {{ version }}'"
+      requires:
+        - pip
+
+  - name: autogluon.timeseries
+    build:
+      noarch: python
+      script: {{ PYTHON }} -m pip install ./timeseries -vv
+      number: {{ number}}
+      script_env:
+        - RELEASE=1
+    requirements:
+      host:
+        - python >=3.8,<3.11
+        - packaging
+        - pip
+      run:
+        - python >=3.8,<3.11
+        - joblib >=1.1,<2
+        - numpy >=1.21,<1.27
+        - scipy >=1.5.4,<1.12
+        - pandas >=1.4.1,<1.6
+        - statsmodels >=0.13.0,<0.15
+        - gluonts >=0.13.1,<0.14
+        - pytorch >=1.9,<1.14
+        - pytorch-lightning >=1.7.4,<1.10.0
+        - networkx >=3.0,<4
+        - statsforecast >=1.4.0,<1.5
+        - mlforecast >=0.7.0,<0.7.4
+        - tqdm >=4.38,<5
+        - ujson >=5,<6
+        - autogluon.core =={{ version }}
+        - autogluon.common =={{ version }}
+        - autogluon.tabular =={{ version }}
+    test:
+      imports:
+        - autogluon.timeseries
+      commands:
+        - python -c "from autogluon.timeseries import __version__ as v; assert v == '{{ version }}', f'{v} != {{ version }}'"
+      requires:
+        - pip
+
+  - name: autogluon
+    build:
+      noarch: python
+      script: {{ PYTHON }} -m pip install ./autogluon -vv
+      number: {{ number}}
+      script_env:
+        - RELEASE=1
+    requirements:
+      host:
+        - python >=3.8,<3.11
+        - pip
+      run:
+        - python >=3.8,<3.11
+        - autogluon.core =={{ version }}
+        - autogluon.features =={{ version }}
+        - autogluon.tabular =={{ version }}
+        - autogluon.multimodal =={{ version }}
+        - autogluon.timeseries =={{ version }}
+    test:
+      imports:
+        - autogluon
+      # commands:
+      #   - python -c "from autogluon.version import __version__ as v; assert v == '{{ version }}', f'{v} != {{ version }}'"
+      requires:
+        - pip
+
 
 about:
   home: https://pypi.org/project/autogluon
@@ -44,7 +279,7 @@ about:
     predictive performance in your applications. With just a few lines of code, you 
     can train and deploy high-accuracy machine learning and deep learning models on 
     image, text, time series, and tabular data.
-  dev_url: https://github.com/autogluon/autogluon/
+  dev_url: https://github.com/autogluon/autogluon
   license: Apache-2.0
   license_file: LICENSE
 
