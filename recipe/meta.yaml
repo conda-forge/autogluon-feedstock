@@ -11,7 +11,7 @@ source:
   sha256: 381ca65386793cc304bf4d439622f33553dc6c7afa09a22a2be4584319a8bf09
 
 build:
-  number: {{ number}}
+  number: {{ number }}
 
 outputs:
   - name: autogluon.common
@@ -45,7 +45,7 @@ outputs:
     build:
       noarch: python
       script: {{ PYTHON }} -m pip install ./features -vv
-      number: {{ number}}
+      number: {{ number }}
       script_env:
         - RELEASE=1
     requirements:
@@ -71,7 +71,7 @@ outputs:
     build:
       skip: true  # [py>=311]
       script: {{ PYTHON }} -m pip install ./core -vv
-      number: {{ number}}
+      number: {{ number }}
       script_env:
         - RELEASE=1
     requirements:
@@ -153,7 +153,7 @@ outputs:
     build:
       noarch: python
       script: {{ PYTHON }} -m pip install ./multimodal -vv
-      number: {{ number}}
+      number: {{ number }}
       script_env:
         - RELEASE=1
     requirements:
@@ -251,7 +251,7 @@ outputs:
     build:
       noarch: python
       script: {{ PYTHON }} -m pip install ./autogluon -vv
-      number: {{ number}}
+      number: {{ number }}
       script_env:
         - RELEASE=1
     requirements:
