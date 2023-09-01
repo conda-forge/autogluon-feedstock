@@ -14,7 +14,7 @@ build:
   script: {{ PYTHON }} -m pip install ./autogluon -vv
   number: 3
 {% if variant == "light" %}
-  string: "{{ variant }}_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}"
+  string: "{{ variant }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}"
 {% endif %}
   script_env:
     - RELEASE=1
