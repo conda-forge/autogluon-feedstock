@@ -12,10 +12,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install ./autogluon -vv
-  number: 3
-{% if variant == "light" %}
-  string: "{{ variant }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}"
-{% endif %}
+  number: 4
   script_env:
     - RELEASE=1
 
@@ -25,15 +22,11 @@ requirements:
     - pip
   run:
     - python >=3.8,<3.11
-  {% if variant == "light" %}
     - autogluon.core =={{ version }}=*light*
-  {% else %}
-    - autogluon.core =={{ version }}
-    - autogluon.timeseries =={{ version }}
-  {% endif %}
     - autogluon.features =={{ version }}
     - autogluon.tabular =={{ version }}
     - autogluon.multimodal =={{ version }}
+    - autogluon.timeseries =={{ version }}
 
 test:
   imports:
