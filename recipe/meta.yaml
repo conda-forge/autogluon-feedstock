@@ -22,7 +22,7 @@ requirements:
     - pip
   run:
     - python >=3.8,<3.12
-    - autogluon.core =={{ version }}=*light*
+    - autogluon.core =={{ version }}
     - autogluon.features =={{ version }}
     - autogluon.tabular =={{ version }}
     - autogluon.multimodal =={{ version }}
