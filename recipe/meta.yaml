@@ -1,18 +1,18 @@
 {% set name = "autogluon" %}
-{% set version = "0.8.2" %}
+{% set version = "0.8.3" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/autogluon/autogluon/archive/7dead13ee1efdffe437e0dc0b83ba08eb9dcf6c7.tar.gz
-  sha256: 5cf3c86a6cac944fd070c17288753788a450eb2732b237d57686546d472f0ba5
+  url: https://github.com/autogluon/autogluon/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: 0c73fa3eb5ce23032471a12056b13f17e1af542ecf8b562efdb7b586d7c44200 
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install ./autogluon -vv
-  number: 4
+  number: 0
   script_env:
     - RELEASE=1
 
@@ -22,7 +22,7 @@ requirements:
     - pip
   run:
     - python >=3.8,<3.11
-    - autogluon.core =={{ version }}=*light*
+    - autogluon.core =={{ version }}
     - autogluon.features =={{ version }}
     - autogluon.tabular =={{ version }}
     - autogluon.multimodal =={{ version }}
@@ -50,7 +50,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - tonyhoo
     - suzhoum
-    - yinweisu
     - Innixma
     - giswqs
