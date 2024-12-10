@@ -1,18 +1,18 @@
 {% set name = "autogluon" %}
-{% set version = "1.1.1" %}
+{% set version = "1.2.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://autogluon.s3.us-west-2.amazonaws.com/tarballs/1.1.1_patch/tarball.tar.gz
-  sha256: e8a23ffc2941e36cf239c472d1fba00a5f660c49a7035c3e6ef1a3a28dd284ea
+  url: https://autogluon.s3.us-west-2.amazonaws.com/tarballs/1.2.0_patch/tarball.tar.gz 
+  sha256: ac72aa0430b711b5eb540b01064a505d42333738bc8b1cd44649249183a647d1 
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install ./autogluon -vv
-  number: 2
+  number: 1
   script_env:
     - RELEASE=1
 
