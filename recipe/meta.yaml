@@ -20,8 +20,9 @@ requirements:
   host:
     - python {{ python_min }}
     - pip
+    - setuptools
   run:
-    - python >={{ python_min }},<3.11
+    - python >={{ python_min }},<3.13
     - autogluon.core =={{ version }}
     - autogluon.features =={{ version }}
     - autogluon.tabular =={{ version }}
@@ -34,8 +35,8 @@ test:
   # commands:
   #   - python -c "from autogluon.version import __version__ as v; assert v == '{{ version }}', f'{v} != {{ version }}'"
   requires:
-    - pip
     - python {{ python_min }}
+    - pip
 
 about:
   home: https://pypi.org/project/autogluon
